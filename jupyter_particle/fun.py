@@ -46,11 +46,18 @@ def desvio_pd(pos_particulas,movimento):
     return S_2
             
 def calculo_Pdh (valor,leitura,DP = 1):
-    result = 0
-    for i in (valor):     
-        print(i)
-        print(valor[i])
+    result = 1
+    for i in (valor):   
         dif = -(leitura[i] - valor[i])
         disv = 2*(DP**2)
-        result += math.exp(dif/disv)
+        result *= math.exp(dif/disv)
+        
     return result
+
+
+def normaliza(lista):
+
+    alfa = 1/sum(lista)
+    for i in range (len(lista)):
+        lista[i] = lista[i] * alfa
+    return lista    
