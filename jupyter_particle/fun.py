@@ -47,15 +47,10 @@ def desvio_pd(pos_particulas,movimento):
         S_2.append(p)       
     return S_2
             
-def calculo_Pdh (valor,leitura,DP = 1):
+def calculo_Pdh (valor,leitura,DP = 5):
     result = 1
     for i in (valor):   
-        #dif = -(leitura[i] - valor[i])
-        #disv = 2*(DP**2)
-        #result *= math.exp(dif/disv)
-        
         result *= math.e ** (-(leitura[i] - valor[i]) / ((2 * DP) ** 2))
-        
     return result
 
 
@@ -76,8 +71,16 @@ def reamostragem(lista_p_normed,particulas):
     print(particulas_exp)
     print(particulas_exp)
     
-#    novas_particulas = Particle.draw_random_sample(particulas, particulas_pesos, 10) 
-#    for p in novas_particulas:
-#        p.w = 1
-#    valores_novas_particulas = [[p.x, p.y, p.theta] for p in novas_particulas]
-#    return valores_novas_particulas
+def novas_part(particulas,lista_p_normed):
+    for i in range(len(particulas)):
+        particulas_exp = [[p.x, p.y, p.theta] for p in particulas]
+        particulas_pesos = [p.w for p in particulas]
+    return particulas_exp, particulas_pesos
+
+def valores_novas_part(novas_particulas):
+    for p in novas_particulas:
+        p.w = 1
+    valores_novas_particulas = [[p.x, p.y, p.theta] for p in novas_particulas]
+    return valores_novas_particulas
+    
+    
