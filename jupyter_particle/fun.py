@@ -48,9 +48,11 @@ def desvio_pd(pos_particulas,movimento):
 def calculo_Pdh (valor,leitura,DP = 1):
     result = 1
     for i in (valor):   
-        dif = -(leitura[i] - valor[i])
-        disv = 2*(DP**2)
-        result *= math.exp(dif/disv)
+        #dif = -(leitura[i] - valor[i])
+        #disv = 2*(DP**2)
+        #result *= math.exp(dif/disv)
+        
+        result *= math.e ** (-(leitura[i] - valor[i]) / ((2 * DP) ** 2))
         
     return result
 
