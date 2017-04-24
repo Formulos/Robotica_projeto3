@@ -28,6 +28,8 @@ def randow_particle(n_part,minx, miny, maxx, maxy):
         p = Particle(x, y, theta)
         S.append(p)
         pos.append([x,y,theta])
+        
+    S.append(Particle(330, 220, math.radians(90)))
     return S,pos
         
 
@@ -63,3 +65,19 @@ def normaliza(lista):
     for i in range (len(lista)):
         lista[i] = lista[i] * alfa
     return lista    
+
+def reamostragem(lista_p_normed,particulas):
+    for i in range (len(lista_p_normed)):
+        particulas[i].w = lista_p_normed[i]
+        
+        
+    particulas_exp = [[p.x, p.y, p.theta] for p in particulas]
+    particulas_pesos = [p.w for p in Particle]
+    print(particulas_exp)
+    print(particulas_exp)
+    
+#    novas_particulas = Particle.draw_random_sample(particulas, particulas_pesos, 10) 
+#    for p in novas_particulas:
+#        p.w = 1
+#    valores_novas_particulas = [[p.x, p.y, p.theta] for p in novas_particulas]
+#    return valores_novas_particulas
