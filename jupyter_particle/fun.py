@@ -28,8 +28,7 @@ def randow_particle(n_part,minx, miny, maxx, maxy):
         p = Particle(x, y, theta)
         S.append(p)
         pos.append([x,y,theta])
-        
-    S.append(Particle(330, 220, math.radians(90)))
+       
     return S,pos
         
 
@@ -50,7 +49,7 @@ def desvio_pd(pos_particulas,movimento):
 def calculo_Pdh (valor,leitura,DP = 5):
     result = 1
     for i in (valor):   
-        result *= math.e ** (-(leitura[i] - valor[i]) / ((2 * DP) ** 2))
+        result *= math.e ** (-(leitura[i] - valor[i]) / (2 * (DP ** 2)))
     return result
 
 
